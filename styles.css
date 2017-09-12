@@ -4,3 +4,19 @@
     margin: 20px;
     border-radius: 5px;
 }
+
+.chart-entry {
+
+    width: 40%;
+    border: solid gray;
+    margin: 20px;
+    border-radius: 5px;
+
+}
+.chart-entry > div{
+    float: left;
+
+}
+.chart-entry .pricing{
+    float: right;
+}

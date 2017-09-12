@@ -1,3 +1,5 @@
 .idea
 config.php
 *.png
+css/
+js/
