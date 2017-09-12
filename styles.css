@@ -115,3 +115,12 @@ ul {
 .articel-image-large img {
     width: 100px;
 }
+
+.confirmation {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(134, 188, 36);
+    color: black;
+}

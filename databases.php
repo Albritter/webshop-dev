@@ -34,7 +34,9 @@ function loadSession()
     }
     mysqli_close($con);
 }
-function getArticle( $low,  $high){
+
+function getArticle($low, $high)
+{
     include "config.php";
 
     $con = mysqli_connect(
@@ -43,15 +45,34 @@ function getArticle( $low,  $high){
         $config["db_pass"],
         $config["db_name"]);
 
-    $stat = mysqli_stmt_init($con)or die(mysqli_error($con));
-    mysqli_stmt_prepare($stat, "SELECT * FROM article WHERE id >= ? AND id <= ?")or die(mysqli_error($con));
+    $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
+    mysqli_stmt_prepare($stat, "SELECT * FROM article WHERE id >= ? AND id <= ?") or die(mysqli_error($con));
     mysqli_stmt_bind_param($stat,
         "ii",
-        $low,$high)or die(mysqli_error($con));
+        $low, $high) or die(mysqli_error($con));
     mysqli_stmt_execute($stat);
-    $res =mysqli_stmt_get_result($stat);
+    $res = mysqli_stmt_get_result($stat);
     echo(mysqli_error($con));
     return $res;
+}
+
+function addArticleToChart($artid)
+{
+    include "config.php";
+
+    $con = mysqli_connect(
+        $config["db_host"],
+        $config["db_user"],
+        $config["db_pass"],
+        $config["db_name"]);
+
+    $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
+    mysqli_stmt_prepare($stat, "INSERT INTO chart (idsession,idarticle) VALUE (?,?)");
+    $sessionid = session_id();
+    mysqli_stmt_bind_param($stat, "si", $sessionid, $artid) or die(mysqli_error($con));
+    mysqli_stmt_execute($stat)or die(mysqli_error($con));
+    echo "artikell nummer " . $artid . " session ". $sessionid;
+
 }
 
 ?>

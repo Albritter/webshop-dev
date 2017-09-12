@@ -1,13 +1,17 @@
 <?php
 error_reporting(-1);
 ini_set('display_errors', 'On');
+#phpinfo();
 ?>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Webshop</title>
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
+<body>
+
 <header class="header">
 	<h1>Webshop</h1>
 </header>
