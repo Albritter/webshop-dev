@@ -20,7 +20,7 @@ ini_set('display_errors', 'On');
 		<ul>
 
 			<li><a href="index.php">Home</a></li>
-			<li><a href="artikelliste.php">Alle Artikel</a></li>
+			<li><a href="artikel.php">Alle Artikel</a></li>
 			<li><a href="chart.php">Warenkorb</a></li>
 		</ul>
 		<div>

@@ -61,13 +61,14 @@ ul li {
 }
 
 .menu a {
-    padding: 15px 16px;
+    padding: 20px 20px;
     text-align: center;
     color: white;
 }
 
 .menu ul li a:hover {
     background-color: black;
+    color: white;
 
 }
 

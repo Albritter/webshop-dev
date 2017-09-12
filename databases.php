@@ -5,8 +5,8 @@ session_start();
 loadSession();
 function loadSession()
 {
-    include "config.php";
 
+    include "config.php";
 
     $con = mysqli_connect(
         $config["db_host"],
@@ -26,10 +26,19 @@ function loadSession()
         $stat2 = mysqli_stmt_init($con) or die(mysqli_error($con)) or die(mysqli_error($con));
         mysqli_stmt_prepare($stat2, "INSERT INTO session (idsession,expires) value (?,?)") or die(mysqli_error($con));
         mysqli_stmt_bind_param($stat2,
-            "ss",
+            "si",
             $sessionid,
             $extime) or die(mysqli_error($con)) or die(mysqli_error($con));
         mysqli_stmt_execute($stat2) or die(mysqli_error($con));
+
+    } else {
+        $extime = 604800 + time();
+        $stat2 = mysqli_stmt_init($con) or die(mysqli_error($con)) or die(mysqli_error($con));
+        mysqli_stmt_prepare($stat2, "UPDATE session SET expires = ? WHERE idsession = ?") or die(mysqli_error($con));
+        mysqli_stmt_bind_param($stat2,
+            "is",
+            $extime, $sessionid) or die(mysqli_error($con)) or die(mysqli_error($con));
+        mysqli_stmt_execute($stat2) or die(mysqli_error($con))or die(mysqli_errno($con));
 
     }
     mysqli_close($con);
@@ -38,6 +47,7 @@ function loadSession()
 function getArticle($low, $high)
 {
     include "config.php";
+
 
     $con = mysqli_connect(
         $config["db_host"],
@@ -60,6 +70,7 @@ function addArticleToChart($artid)
 {
     include "config.php";
 
+
     $con = mysqli_connect(
         $config["db_host"],
         $config["db_user"],
@@ -70,8 +81,8 @@ function addArticleToChart($artid)
     mysqli_stmt_prepare($stat, "INSERT INTO chart (idsession,idarticle) VALUE (?,?)");
     $sessionid = session_id();
     mysqli_stmt_bind_param($stat, "si", $sessionid, $artid) or die(mysqli_error($con));
-    mysqli_stmt_execute($stat)or die(mysqli_error($con));
-    echo "artikell nummer " . $artid . " session ". $sessionid;
+    mysqli_stmt_execute($stat) or die(mysqli_error($con));
+    echo "artikell nummer " . $artid . " session " . $sessionid;
 
 }
 
