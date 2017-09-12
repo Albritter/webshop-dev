@@ -1,0 +1,6 @@
+.artikel > div {
+    text-align: center;
+    border: solid gray;
+    margin: 20px;
+    border-radius: 5px;
+}
