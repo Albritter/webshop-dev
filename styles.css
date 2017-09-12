@@ -8,15 +8,28 @@
 .chart-entry {
 
     width: 40%;
-    border: solid gray;
+    border: solid thick gray;
     margin: 20px;
+    pading: 0px;
     border-radius: 5px;
+    display: inline-block
 
 }
-.chart-entry > div{
-    float: left;
 
+.chart-entry {
+    margin-left: 30%;
+    margin-right: 30%;
 }
-.chart-entry .pricing{
-    float: right;
+
+.chart-entry > div {
+    display: inline-block
 }
+
+.pricing {
+    margin: 20px;
+}
+
+.description {
+    text-align: center;
+}
+
