@@ -38,7 +38,7 @@ function loadSession()
         mysqli_stmt_bind_param($stat2,
             "is",
             $extime, $sessionid) or die(mysqli_error($con)) or die(mysqli_error($con));
-        mysqli_stmt_execute($stat2) or die(mysqli_error($con))or die(mysqli_errno($con));
+        mysqli_stmt_execute($stat2) or die(mysqli_error($con)) or die(mysqli_errno($con));
 
     }
     mysqli_close($con);
@@ -84,6 +84,25 @@ function addArticleToChart($artid)
     mysqli_stmt_execute($stat) or die(mysqli_error($con));
     echo "artikell nummer " . $artid . " session " . $sessionid;
 
+}
+
+function getChart()
+{
+    include "config.php";
+
+
+    $con = mysqli_connect(
+        $config["db_host"],
+        $config["db_user"],
+        $config["db_pass"],
+        $config["db_name"]);
+
+    $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
+    mysqli_stmt_prepare($stat, "SELECT article.name , img,COUNT(article.id  ) AS number, article.price FROM chart JOIN article on(chart.idarticle=article.id)  WHERE chart.idsession = ? group by article.id") or die(mysqli_error($con));
+    $sessionid = session_id();
+    mysqli_stmt_bind_param($stat, "s", $sessionid);
+    mysqli_stmt_execute($stat);
+    return mysqli_stmt_get_result($stat);
 }
 
 ?>
