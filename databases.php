@@ -42,7 +42,7 @@ function loadSession()
 
     }
     mysqli_close($con);
-}
+}   
 
 function getArticle($low, $high)
 {
@@ -82,7 +82,7 @@ function addArticleToChart($artid)
     $sessionid = session_id();
     mysqli_stmt_bind_param($stat, "si", $sessionid, $artid) or die(mysqli_error($con));
     mysqli_stmt_execute($stat) or die(mysqli_error($con));
-    echo "artikell nummer " . $artid . " session " . $sessionid;
+ //   echo "artikell nummer " . $artid . " session " . $sessionid;
 
 }
 
@@ -103,6 +103,13 @@ function getChart()
     mysqli_stmt_bind_param($stat, "s", $sessionid);
     mysqli_stmt_execute($stat);
     return mysqli_stmt_get_result($stat);
+}
+
+function deleteSession(){
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', 0, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));//set new empty Session Cookie
+    echo "Session ist weg";
+
 }
 
 ?>

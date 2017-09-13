@@ -32,6 +32,9 @@
 
 .description {
     text-align: center;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
 }
 
 html * {
@@ -125,4 +128,9 @@ ul {
     text-align: center;
     background-color: rgb(134, 188, 36);
     color: black;
+}
+.reset > form > input {
+    float: left;
+    display: inline-block
+
 }

@@ -10,7 +10,7 @@ while ($art = mysqli_fetch_assoc($res)) {
     echo $art["name"] . " </div> <div class='articel-image-large'>";
     echo "<img src=\"" . $art["img"] . "\"/></div></div>";
     echo "<div class=\"pricing\"> <div>";
-    echo "Anzahl: ".$art["number"] . "</div><div>".$art["price"]."€</div><div>".$art["price"]*$art["number"]."€</div></div></div></div></div>";
+    echo "Anzahl: ".$art["number"] . "</div><div>Einzelpreis: ".$art["price"]."€</div><div>Gesamtpreis:  ".$art["price"]*$art["number"]."€</div></div></div></div></div>";
 }
 
 ?>
