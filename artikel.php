@@ -19,9 +19,9 @@ while ($article = mysqli_fetch_assoc($articleList)) {
     if ($i == 0) {
         $i = 3;
         echo "</div>";
-        echo "<div class=\"row artikel\">";
+        echo "<div class=\"row center-block\"'>";
     }
-    echo "<div class=\"col-md\">\n";
+    echo "<div class=\"col-sm-3 col-centered artikel\">\n";
     echo "<div>" . $article["name"] . "</div>";
     echo "<div class=\"articel-image-large\">\n";
     echo "<img src=\"" . $article["img"] . "\"/>";
@@ -43,7 +43,7 @@ while ($article = mysqli_fetch_assoc($articleList)) {
 if ($i < 3) {
     echo "</div>";
 }
-echo "</div>";
+
 
 
 include "footer.php";

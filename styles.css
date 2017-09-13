@@ -1,5 +1,4 @@
-.artikel > div {
-    text-align: center;
+.artikel  {
     border: solid gray;
     margin: 20px;
     border-radius: 5px;
@@ -46,9 +45,6 @@ html * {
     text-align: center;
 }
 
-nav form {
-
-}
 
 .menu {
 
@@ -102,18 +98,18 @@ ul {
 
 }
 
-#leagal ul {
+#leagal > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-#leagal ul li {
+#leagal> ul li {
     padding-left: 10px;
     float: left;
 }
 
-#leagal ul li a {
+#leagal> ul li a {
     color: inherit;
 
 }
@@ -139,4 +135,7 @@ ul {
     float: left;
     display: inline-block
 
+}
+#session-input{
+    display: none !important;
 }
