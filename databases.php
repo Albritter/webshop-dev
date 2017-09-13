@@ -98,7 +98,7 @@ function getChart()
         $config["db_name"]);
 
     $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
-    mysqli_stmt_prepare($stat, "SELECT article.name , img,COUNT(article.id  ) AS number, article.price FROM chart JOIN article on(chart.idarticle=article.id)  WHERE chart.idsession = ? group by article.id") or die(mysqli_error($con));
+    mysqli_stmt_prepare($stat, "SELECT article.name , img,COUNT(article.id) AS number, article.price FROM chart JOIN article on(chart.idarticle=article.id)  WHERE chart.idsession = ? group by article.id") or die(mysqli_error($con));
     $sessionid = session_id();
     mysqli_stmt_bind_param($stat, "s", $sessionid);
     mysqli_stmt_execute($stat);
@@ -111,5 +111,7 @@ function deleteSession(){
     echo "Session ist weg";
 
 }
+
+
 
 ?>
