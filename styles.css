@@ -42,7 +42,7 @@ html * {
 
 }
 
-.header h1 {
+/*.header h1 {
     text-align: center;
 }
 
@@ -60,9 +60,6 @@ nav form {
 
 }
 
-ul li {
-    float: left;
-}
 
 .menu a {
     padding: 20px 20px;
@@ -79,7 +76,7 @@ ul li {
 .menu div {
     float: right;
 }
-
+*/
 @font-face {
     font-family: "Oswald";
     font-style: normal;
@@ -88,29 +85,37 @@ ul li {
     unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
+/*
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+
 }
 
 .menu ul li a {
     padding-right: 5em;
 
-}
+}*/
 
 #leagal {
     float: right;
     list-style: none;
+    margin-right: 5px;
 
+}
+
+#leagal ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 #leagal ul li {
     padding-left: 10px;
+    float: left;
 }
 
 #leagal ul li a {
     color: inherit;
+
 }
 
 .footer div {
@@ -129,6 +134,7 @@ ul {
     background-color: rgb(134, 188, 36);
     color: black;
 }
+
 .reset > form > input {
     float: left;
     display: inline-block
