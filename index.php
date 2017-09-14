@@ -4,7 +4,7 @@ include_once "config.php";
 include_once "databases.php";
 include_once "header.php";
 
-if(isset($_GET["session"])){
+if (isset($_GET["session"])) {
     deleteSession();
 }
 ?>
@@ -15,8 +15,8 @@ if(isset($_GET["session"])){
         <form action="index.php" method="GET">
             <?php
             $sessionid = session_id();
-            echo '<input id="session-input" type="text" name="session" value="'. $sessionid . '"/>';
-            ?><input type="submit" value="Jetzt löschen"/ >
+            echo '<input id="session-input" type="text" name="session" value="' . $sessionid . '"/>';
+            ?><input type="submit" value="Jetzt löschen"/>
             <h5>Hier können Sie Ihre Daten löschen</h5>
 
         </form>

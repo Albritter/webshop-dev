@@ -6,46 +6,27 @@ ini_set('display_errors', 'On');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Webshop</title>
-	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Webshop</title>
+    <link rel="stylesheet" href="styles.css">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
-
-<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="index.php">WebSiteName</a>
-		</div>
-		<ul class="nav navbar-nav">
-            <?php
-            switch (basename($_SERVER['SCRIPT_FILENAME'])) {
-                case "index.php":
-                    echo '<li class = "active" ><a href = "index.php" > Home</a ></li >';
-                    echo '<li ><a href = "artikel.php" > Alle Artikel </a ></li >';
-                    echo '<li ><a href = "chart.php" > Warenkorb</a ></li >';
-                    echo '<li ><a href = "https://github.com/albritter/webshop-dev" > SourceCode</a ></li >';
-                    break;
-                case "artikel.php":
-                    echo '<li ><a href = "index.php" > Home</a ></li >';
-                    echo '<li class = "active" ><a href = "artikel.php" > Alle Artikel </a ></li >';
-                    echo '<li ><a href = "chart.php" > Warenkorb</a ></li >';
-                    echo '<li ><a href = "https://github.com/albritter/webshop-dev" > SourceCode</a ></li >';
-                    break;
-                case "chart.php":
-                    echo '<li ><a href = "index.php" > Home</a ></li >';
-                    echo '<li ><a href = "artikel.php" > Alle Artikel </a ></li >';
-                    echo '<li class = "active" ><a href = "chart.php" > Warenkorb</a ></li >';
-                    echo '<li ><a href = "https://github.com/albritter/webshop-dev" > SourceCode</a ></li >';
-                    break;
-
-            } ?></ul>
-	</div>
+<nav class="navbar navbar-expand navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Webshop-dev</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="artikel.php">Alle Artikel</a>
+            <a class="nav-item nav-link" href="chart.php">Warenkorb</a>
+            <a class="nav-item nav-link" href="https://github.com/halbritter/webshop-dev">SourceCode</a>
+        </div>
+    </div>
 </nav>
