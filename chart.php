@@ -8,27 +8,32 @@ while ($art = mysqli_fetch_assoc($res)) {
         $art["img"] = "noimage.png";
     }
     echo "
-<div class=' chart-row'>
-    <div class='chart-col'>
-        <div>
+<div class='row  justify-content-center'>
+    <div class='col-md-4'>
+        <div class='chart-entry'>
             <div class='chart-desc-l'>
                 <div class='chart-title'>
                     " . $art["name"] . "
                 </div>
                 <div class='chart-image'>
-                    <img src='" . $art["img"] . "'>
+                    <img src='" . $art["img"] . "'/>
                 </div>
             </div>
-            <div calls='chart-desc-r'>
-                <div>
-                " . $art["number"] . "
-                </div>
-                <div>
-                " . $art["price"] . "&euro;
-                </div>
-                <div>
-                " . $art["number"] * $art["price"] . "&euro;
-                </div>
+            <div class='chart-desc-r'>
+                <table>
+                    <tr>       
+                        <td>Anzahl: </td>
+                        <td>" . $art["number"] . "</td>
+                    </tr>
+                    <tr>
+                        <td>Preis: </td>
+                        <td>" . $art["price"] . "</td>
+                    </tr>
+                    <tr>
+                        <td>Gesamt: </td>
+                        <td>" . $art["number"] * $art["price"] . "</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

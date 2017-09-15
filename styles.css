@@ -1,14 +1,10 @@
 .artikel {
-    border: solid gray;
+    border: thin solid gray;
     margin: 20px;
     border-radius: 5px;
     display: inline-block;
     width: 100%;
-}
-
-.artikel > div {
-    display: inline-block;
-
+    text-align: center;
 }
 
 .pricing {
@@ -107,7 +103,7 @@ ul {
     float: left;
 }
 
-.articel-image-large img {
+.articel-image-normal img {
     width: 100px;
 }
 
@@ -127,7 +123,6 @@ ul {
 .reset > form > input {
     float: left;
 
-
 }
 
 #session-input {
@@ -136,42 +131,34 @@ ul {
 
 .desc {
     text-align: center;
-
-}
-
-.chart-container {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.chart-row {
-    border: solid gray;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    overflow: auto;
-}
-
-.chart-desc {
-    text-align: center;
-}
-
-.chart-name {
-    text-align: center;
-}
-
-.chart-image {
-
+    display: block;
+    margin-bottom: 5px;
 }
 
 .chart-image img {
     width: 100px;
+    margin: 5px;
+}
+
+.chart-entry {
+    border: thin solid grey;
+    border-radius: 5px;
+    margin-top: 20px;
+    overflow: auto;
+
 }
 
 .chart-desc-l {
     float: left;
+    text-align: center;
 }
 
 .chart-desc-r {
     float: right;
+}
+
+.chart-desc-r table {
+    margin-right: 5px;
+    margin-top: 40%;
+
 }

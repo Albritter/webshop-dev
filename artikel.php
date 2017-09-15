@@ -24,7 +24,7 @@ while ($article = mysqli_fetch_assoc($articleList)) {
     echo "<div class=\"col-sm-3 col artikel \">\n";
     echo "<div class=\"desc\">";
     echo "<div>" . $article["name"] . "</div>";
-    echo "<div class=\"articel-image-large\">\n";
+    echo "<div class=\"articel-image-normal\">\n";
     echo "<img src=\"" . $article["img"] . "\"/>";
     echo "<div>" . $article["price"] . "€</div>";
     echo "</div><div>";
