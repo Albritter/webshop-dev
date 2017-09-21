@@ -4,9 +4,13 @@ include_once "databases.php";
 
 if (isset($_POST["nummer"])) {
     addArticleToChart($_POST["nummer"]);
-    echo "<div class=\"confirmation\">";
+    echo "<div class='confirmation'>";
     echo "	<h4>Artikel wurde in den Warenkorb gelegt.</h4>";
     echo "</div>";
+} else {
+    echo "<div style='high:1em'> 
+            <h4></h4>
+            </div>";
 }
 
 echo "<div class=\"container\">";

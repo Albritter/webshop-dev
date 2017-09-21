@@ -1,3 +1,7 @@
+#ACHTUNG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#Datei ist nicht mehr aktuell!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -38,11 +42,11 @@ COLLATE = utf8_bin;
 
 
 -- -----------------------------------------------------
--- Table `db_webshop`.`session`
+-- Table `db_webshop`.`sessions`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `db_webshop`.`session` ;
+DROP TABLE IF EXISTS `db_webshop`.`sessions` ;
 
-CREATE TABLE IF NOT EXISTS `db_webshop`.`session` (
+CREATE TABLE IF NOT EXISTS `db_webshop`.`sessions` (
   `idsession` VARCHAR(64) NOT NULL,
   `expires` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`idsession`))
@@ -69,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `db_webshop`.`chart` (
     ON UPDATE NO ACTION,
   CONSTRAINT `id_session`
     FOREIGN KEY (`idsession`)
-    REFERENCES `db_webshop`.`session` (`idsession`)
+    REFERENCES `db_webshop`.`sessions` (`idsession`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
