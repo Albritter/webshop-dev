@@ -1,6 +1,5 @@
 <?php
 include_once "header.php";
-include_once "databases.php";
 
 if (isset($_POST["nummer"])) {
     addArticleToChart($_POST["nummer"]);
@@ -13,8 +12,9 @@ if (isset($_POST["nummer"])) {
             </div>";
 }
 
-echo "<div class=\"container\">";
-$i = 0;
+echo "<div class='container'>";
+echo "<div class='row  justify-content-center'>";
+$i = 3;
 $articleList = getArticle(0, 99);
 while ($article = mysqli_fetch_assoc($articleList)) {
     if ($article["img"] == "") {
@@ -23,18 +23,18 @@ while ($article = mysqli_fetch_assoc($articleList)) {
     if ($i == 0) {
         $i = 3;
         echo "</div>";
-        echo "<div class=\"row justify-content-center \">";
+        echo "<div class='row justify-content-center '>";
     }
-    echo "<div class=\"col-sm-3 col artikel \">\n";
-    echo "<div class=\"desc\">";
+    echo "<A NAME='" . $article["id"] . "'><div class='col-sm-3  artikel '></a>\n";
+    echo "<div class='desc'>";
     echo "<div>" . $article["name"] . "</div>";
-    echo "<div class=\"articel-image-normal\">\n";
-    echo "<img src=\"" . $article["img"] . "\"/>";
+    echo "<div class='articel-image-normal'>\n";
+    echo "<img src='" . $article["img"] . "'/>";
     echo "<div>" . $article["price"] . "€</div>";
     echo "</div><div>";
-    echo "<form action=\"artikel.php\" method=\"POST\">";
-    echo "<input hidden value=\"" . $article["id"] . "\" name=\"nummer\"/>";
-    echo "<input type=\"submit\" value=\"In den Warenkorb\"/>";
+    echo "<form action='artikel.php#".$article["id"]."' method='POST'>";
+    echo "<input hidden value='" . $article["id"] . "' name='nummer'/>";
+    echo "<input type='submit' value='In den Warenkorb'/>";
     echo "</form>";
     echo "</div>";
     echo "</div>";
@@ -48,7 +48,7 @@ while ($article = mysqli_fetch_assoc($articleList)) {
 if ($i < 3) {
     echo "</div>";
 }
-
+echo "</div>";
 
 include "footer.php";
 ?>

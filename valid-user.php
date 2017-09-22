@@ -1,3 +1,5 @@
 <?php
 
-$session = session();
+if(!isValidUser()){
+    die("Sie sind nicht angemeldet!");
+}

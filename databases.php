@@ -41,7 +41,6 @@ function loadSession()
         mysqli_stmt_execute($stat2) or die(mysqli_error($con)) or die(mysqli_errno($con));
 
     }
-    mysqli_close($con);
 }
 
 function getArticle($low, $high)
@@ -107,8 +106,8 @@ function getChart()
 function deleteSession()
 {
     include "config.php";
-    $params = session_get_cookie_params(); //Ich nutze den POST["session"] Wert hier bewust nicht, da sonst sessions gelöscht werden könnten, die nicht di eigenen sind
-    setcookie(session_name(), '', 0, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));//set new empty Session Cookie
+    $params = session_get_cookie_params(); //Ich nutze den POST["session"] Wert hier bewust nicht, da sonst fremde sessions gelöscht werden könnten
+    setcookie(session_name(), '', 0, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));//setze neuen leeren sessioin coockie
     echo "Session ist weg";
     if ($config["delete_on_user_request"]) {
         deleteSessionData();
@@ -164,6 +163,10 @@ function login()
     include "config.php";
 
     if (array_key_exists("password", $_POST) && array_key_exists("user", $_POST)) {
+        if (empty($_POST["password"]) || empty($_POST["user"])) {
+            echo "Das required steht da nicht ohne Grund...";
+            return;
+        }
         $con = mysqli_connect(
             $config["db_host"],
             $config["db_user"],
@@ -171,14 +174,13 @@ function login()
             $config["db_name"]);
 
         $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
-        mysqli_stmt_prepare($stat, "SELECT u.password FROM user u WHERE u.name = ?") or die(mysqli_error($con));
+        mysqli_stmt_prepare($stat, "SELECT u.password FROM user u WHERE u.name = ?") ;
         $sessionid = session_id();
         mysqli_stmt_bind_param($stat, "s", $_POST["user"]);
         mysqli_stmt_execute($stat);
         $res = mysqli_stmt_get_result($stat);
         $pass = mysqli_fetch_assoc($res)["password"];
 
-        echo "loginin";
         if (password_verify($_POST["password"], $pass)) {
             $stat2 = mysqli_stmt_init($con);
             mysqli_stmt_prepare($stat2, "UPDATE sessions SET user = (SELECT id FROM user WHERE name = ? LIMIT 1) WHERE sessions.idsession = ?");//Da die Spalte "name" eigentlich unique ist ist limit in diesem zusammenhang redundat, sorgt aber dafür dass das mysql nach dem ersten fund aufhört. Ohne limit würde mysql alle datensätze duchgehen.
@@ -189,4 +191,21 @@ function login()
 
 }
 
+function logout(){
+    include "config.php";
+
+
+    $con = mysqli_connect(
+        $config["db_host"],
+        $config["db_user"],
+        $config["db_pass"],
+        $config["db_name"]);
+
+    $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
+    mysqli_stmt_prepare($stat, "UPDATE sessions set sessions.user = NULL WHERE idsession = ?") or die(mysqli_error($con));
+    $sessionid = session_id();
+    mysqli_stmt_bind_param($stat, "s", $sessionid);
+    mysqli_stmt_execute($stat);
+
+}
 ?>

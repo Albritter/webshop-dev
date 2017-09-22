@@ -1,6 +1,5 @@
 <?php
 include_once "header.php";
-include "databases.php";
 $res = getChart();
 echo '<div class=" chart-container">';
 while ($art = mysqli_fetch_assoc($res)) {

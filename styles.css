@@ -3,7 +3,7 @@
     margin: 20px;
     border-radius: 5px;
     display: inline-block;
-    width: 100%;
+    /*  width: 100%; */
     text-align: center;
 }
 
@@ -162,6 +162,12 @@ ul {
     margin-top: 40%;
 
 }
-.login{
+
+.login {
     display: inline-block;
+}
+
+#login > input {
+
+    width: 100%;
 }
