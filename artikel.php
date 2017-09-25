@@ -3,17 +3,19 @@ include_once "header.php";
 
 if (isset($_POST["nummer"])) {
     addArticleToChart($_POST["nummer"]);
-    echo "<div class='confirmation'>";
-    echo "	<h4>Artikel wurde in den Warenkorb gelegt.</h4>";
-    echo "</div>";
+    echo "
+<div class='confirmation'>
+    <h4>Artikel wurde in den Warenkorb gelegt.</h4>
+</div>
+ ";
 } else {
     echo "<div style='high:1em'> 
             <h4></h4>
             </div>";
 }
 
-echo "<div class='container'>";
-echo "<div class='row  justify-content-center'>";
+echo "<div class='container-fluid' id='containerart'>";
+echo "<div class='row '>";
 $i = 3;
 $articleList = getArticle(0, 99);
 while ($article = mysqli_fetch_assoc($articleList)) {
@@ -25,25 +27,31 @@ while ($article = mysqli_fetch_assoc($articleList)) {
         echo "</div>";
         echo "<div class='row justify-content-center '>";
     }
-    echo "<A NAME='" . $article["id"] . "'><div class='col-sm-3  artikel '></a>\n";
-    echo "<div class='desc'>";
-    echo "<div>" . $article["name"] . "</div>";
-    echo "<div class='articel-image-normal'>\n";
-    echo "<img src='" . $article["img"] . "'/>";
-    echo "<div>" . $article["price"] . "€</div>";
-    echo "</div><div>";
-    echo "<form action='artikel.php#".$article["id"]."' method='POST'>";
-    echo "<input hidden value='" . $article["id"] . "' name='nummer'/>";
-    echo "<input type='submit' value='In den Warenkorb'/>";
-    echo "</form>";
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
+    if ($i == 3){
+        $offset = "col-sm-offset-3";
+    }
+    echo "
+    <a name='" . $article["id"] . "'>
+    <div class='col-sm-2  artikel ". $offset ." '></a>\n
+        <div class='desc'>
+            <div>" . $article["name"] . "</div>
+            <div class='articel-image-normal'>\n
+                <img src='" . $article["img"] . "'/>
+                <div>" . $article["price"] . "€</div>
+            </div>
+            <div>
+                <form action='artikel.php#".$article["id"]."' method='POST'>
+                    <input hidden value='" . $article["id"] . "' name='nummer'/>
+                    <input type='submit' value='In den Warenkorb'/>
+                </form>
+            </div>
+        </div>
+    </div>";
 
 
     $i--;
 
-
+$offset ="";
 }
 if ($i < 3) {
     echo "</div>";

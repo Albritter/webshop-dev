@@ -1,6 +1,6 @@
 .artikel {
     border: thin solid gray;
-    margin: 20px;
+margin: 15px;
     border-radius: 5px;
     display: inline-block;
     /*  width: 100%; */
@@ -170,4 +170,9 @@ ul {
 #login > input {
 
     width: 100%;
+}
+#containerart{
+    margin-left: 0px; !important;
+    margin-right: 0px; !important;
+
 }
