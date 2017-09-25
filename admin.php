@@ -37,7 +37,7 @@ if (!isValidUser()) {
         </div>
     </div>
 </div>";
-} else { //Ja das hätte man besser lesbar machen können...
+} else if(array_key_exists($_POST["user"])) {
     echo "
 <div class='confirmation'>
 Sie sind nun angemeldet.  
