@@ -39,7 +39,7 @@
                     if (isValidUser()) {
                         echo '<li ><a href = "admin.php" >Admin</a></li >';
                     }
-                    echo '<li ><a href = "https://github.com/albritter/webshop-dev" > SourceCode</a ></li >';
+                    echo '<li ><a href = "https://github.com/halbritter/webshop-dev" > SourceCode</a ></li >';
 
 
                     break;
