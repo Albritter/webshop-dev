@@ -14,7 +14,7 @@ if (isset($_POST["nummer"])) {
             </div>";
 }
 
-echo "<div class='container-fluid' id='containerart'>";
+echo "<div class='container-fluid'>";
 echo "<div class='row '>";
 $i = 3;
 $articleList = getArticle(0, 99);
