@@ -96,7 +96,7 @@ function getChart()
         $config["db_name"]);
 
     $stat = mysqli_stmt_init($con);
-    mysqli_stmt_prepare($stat, "SELECT article.name , img,COUNT(article.id) AS number, article.price FROM chart JOIN article on(chart.idarticle=article.id)  WHERE chart.idsession = ? group by article.id") or die(mysqli_error($con));
+    mysqli_stmt_prepare($stat, "SELECT article.name , img,COUNT(article.id) AS number, article.price FROM chart JOIN article on(chart.idarticle=article.id)  WHERE chart.idsession = ? group by  article.id, article.name,article.img,article.price") or die(mysqli_error($con));
     $sessionid = session_id();
     mysqli_stmt_bind_param($stat, "s", $sessionid);
     mysqli_stmt_execute($stat);
@@ -106,7 +106,7 @@ function getChart()
 function deleteSession()
 {
     include "config.php";
-    $params = session_get_cookie_params(); //Ich nutze den POST["session"] Wert hier bewust nicht, da sonst fremde sessions gelöscht werden könnten
+    $params = session_get_cookie_params();
     setcookie(session_name(), '', 0, $params['path'], $params['domain'], $params['secure'], isset($params['httponly']));//setze neuen leeren sessioin coockie
     echo "Session ist weg";
     if ($config["delete_on_user_request"]) {
