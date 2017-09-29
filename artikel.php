@@ -20,7 +20,7 @@ $i = 3;
 $articleList = getArticle(0, 99);
 while ($article = mysqli_fetch_assoc($articleList)) {
     if ($article["img"] == "") {
-        $article["img"] = "noimage.png";
+        $article["img"] = "img/noimage.png";
     }
     if ($i == 0) {
         $i = 3;

@@ -174,7 +174,7 @@ function login()
             $config["db_name"]);
 
         $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
-        mysqli_stmt_prepare($stat, "SELECT u.password FROM user u WHERE u.name = ?") ;
+        mysqli_stmt_prepare($stat, "SELECT u.password FROM user u WHERE u.name = ?");
         $sessionid = session_id();
         mysqli_stmt_bind_param($stat, "s", $_POST["user"]);
         mysqli_stmt_execute($stat);
@@ -191,7 +191,8 @@ function login()
 
 }
 
-function logout(){
+function logout()
+{
     include "config.php";
 
 
@@ -208,4 +209,22 @@ function logout(){
     mysqli_stmt_execute($stat);
 
 }
+
+function addArticle()
+{
+    include "config.php";
+if()
+
+    $con = mysqli_connect(
+        $config["db_host"],
+        $config["db_user"],
+        $config["db_pass"],
+        $config["db_name"]);
+
+    $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
+    mysqli_stmt_prepare($stat, "INSERT INTO article (name,price,img) VALUES (?,?,?)") or die(mysqli_error($con));
+    mysqli_stmt_bind_param($stat, "sds", $_POST[""]);
+    mysqli_stmt_execute($stat);
+}
+
 ?>

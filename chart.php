@@ -4,7 +4,7 @@ $res = getChart();
 echo '<div class=" chart-container">';
 while ($art = mysqli_fetch_assoc($res)) {
     if (!isset($art["img"])) {
-        $art["img"] = "noimage.png";
+        $art["img"] = "img/noimage.png";
     }
     echo "
 <div class='row  justify-content-center'>

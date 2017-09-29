@@ -37,7 +37,7 @@ if (!isValidUser()) {
         </div>
     </div>
 </div>";
-} else if(array_key_exists($_POST["user"])) {
+} else if (array_key_exists("user", $_POST)) {
     echo "
 <div class='confirmation'>
 Sie sind nun angemeldet.  
@@ -45,4 +45,50 @@ Sie sind nun angemeldet.
 </from>
 </div>
 ";
+} else {
+    echo "<a href='logout.php'> Logout </a>";
 }
+if (isValidUser()) {
+    echo "
+<div>
+<h1>Artikel hinzufügen</h1>
+</div>
+<form method='POST' action='upload.php' enctype='multipart/form-data'>
+   <table>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                <input type='text' name='name'/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Preis
+            </td>
+            <td>
+                <input type='number' name='pries'/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Bild
+            </td>
+            <td>
+                <input type='file' name='fileToUpload'/>        
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 id='upload'>
+                 <input type='submit'/></form>      
+            </td >
+        </tr>
+    </table>
+    </form>
+</div>
+</div>
+";
+}
+
+
