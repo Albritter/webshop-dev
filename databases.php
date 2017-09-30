@@ -22,23 +22,10 @@ function loadSession()
     mysqli_stmt_execute($stat);
     $res = mysqli_stmt_get_result($stat);
     if (mysqli_fetch_assoc($res)["value"] != 1) {
-        $extime = 604800 + time();
         $stat2 = mysqli_stmt_init($con) or die(mysqli_error($con)) or die(mysqli_error($con));
-        mysqli_stmt_prepare($stat2, "INSERT INTO sessions (idsession,expires) value (?,?)") or die(mysqli_error($con));
-        mysqli_stmt_bind_param($stat2,
-            "si",
-            $sessionid,
-            $extime) or die(mysqli_error($con)) or die(mysqli_error($con));
+        mysqli_stmt_prepare($stat2, "INSERT INTO sessions (idsession) value (?)") or die(mysqli_error($con));
+        mysqli_stmt_bind_param($stat2, "s", $sessionid);
         mysqli_stmt_execute($stat2) or die(mysqli_error($con));
-
-    } else {
-        $extime = 604800 + time();
-        $stat2 = mysqli_stmt_init($con) or die(mysqli_error($con)) or die(mysqli_error($con));
-        mysqli_stmt_prepare($stat2, "UPDATE sessions SET expires = ? WHERE idsession = ?") or die(mysqli_error($con));
-        mysqli_stmt_bind_param($stat2,
-            "is",
-            $extime, $sessionid) or die(mysqli_error($con)) or die(mysqli_error($con));
-        mysqli_stmt_execute($stat2) or die(mysqli_error($con)) or die(mysqli_errno($con));
 
     }
 }
@@ -212,19 +199,28 @@ function logout()
 
 function addArticle()
 {
+    var_dump($_POST);
     include "config.php";
-if()
+    if (array_key_exists("name", $_POST) && array_key_exists("preis", $_POST)) {
+        echo "Start db";
 
-    $con = mysqli_connect(
-        $config["db_host"],
-        $config["db_user"],
-        $config["db_pass"],
-        $config["db_name"]);
+        $con = mysqli_connect(
+            $config["db_host"],
+            $config["db_user"],
+            $config["db_pass"],
+            $config["db_name"]);
 
-    $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
-    mysqli_stmt_prepare($stat, "INSERT INTO article (name,price,img) VALUES (?,?,?)") or die(mysqli_error($con));
-    mysqli_stmt_bind_param($stat, "sds", $_POST[""]);
-    mysqli_stmt_execute($stat);
+        $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
+        mysqli_stmt_prepare($stat, "INSERT INTO article (name,price,img) VALUES (?,?,?)") or die(mysqli_error($con));
+        $basename = (string) basename($_FILES["fileToUpload"]["name"]);
+        mysqli_stmt_bind_param($stat,
+            "sds",
+            $_POST["name"],
+            $_POST["preis"],
+            $basename);
+        mysqli_stmt_execute($stat);
+        echo "end db";
+    }
 }
 
 ?>

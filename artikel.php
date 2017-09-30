@@ -36,7 +36,7 @@ while ($article = mysqli_fetch_assoc($articleList)) {
         <div class='desc'>
             <div>" . $article["name"] . "</div>
             <div class='articel-image-normal'>\n
-                <img src='" . $article["img"] . "'/>
+                <img src='img/" . $article["img"] . "'/>
                 <div>" . $article["price"] . "€</div>
             </div>
             <div>

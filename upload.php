@@ -2,7 +2,7 @@
 include "header.php";
 //Folgender code ist von WC3School
 
-$target_file = $_SERVER['DOCUMENT_ROOT'] . "img/" . basename($_FILES["fileToUpload"]["name"]);
+$target_file = "img/" . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 if (isset($_POST["submit"])) {
@@ -11,18 +11,15 @@ if (isset($_POST["submit"])) {
         $uploadOk = 1;
     } else {
         $uploadOk = 0;
-        return false;
     }
 }
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
-    return false;
 }
 if ($_FILES["fileToUpload"]["size"] > getMaximumFileUploadSize()) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
-    return false;
 
 }
 // Allow certain file formats
@@ -30,24 +27,22 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
     && $imageFileType != "gif") {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
-    return false;
 
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
-    return false;
 
 // if everything is ok, try to upload file
-} else {
+} else {    echo getcwd();
+
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "Die Datei " . basename($_FILES["fileToUpload"]["name"]) . " wurde hochgeladen."; //Ausgabe übersetzt
         echo "<meta http-equiv='refresh' content='5; URL=admin.php'>"; //Zeile hinzugefügt
-        return true;
+        addArticle();
     } else {
 //        echo "Sorry, there was an error uploading your file 2.".$_FILES["fileToUpload"]["error"];
-        return false;
-
+        echo "Es gab beim Hochladen einen Fehler.";
     }
 }
 

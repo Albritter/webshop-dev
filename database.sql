@@ -77,7 +77,6 @@ DROP TABLE IF EXISTS `db_webshop`.`sessions` ;
 
 CREATE TABLE IF NOT EXISTS `db_webshop`.`sessions` (
   `idsession` VARCHAR(64) NOT NULL COMMENT '',
-  `expires` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '',
   `user` INT(11) NULL DEFAULT NULL COMMENT '',
   PRIMARY KEY (`idsession`)  COMMENT '',
   INDEX `iduser_idx` (`user` ASC)  COMMENT '',

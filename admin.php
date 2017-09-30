@@ -68,7 +68,7 @@ if (isValidUser()) {
                 Preis
             </td>
             <td>
-                <input type='number' name='pries'/>
+                <input type='number' name='preis'/>
             </td>
         </tr>
         <tr>
