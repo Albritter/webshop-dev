@@ -10,3 +10,5 @@ $b_crypt = [
     "cost" => "12" //2^12 Runden for BCrypt;
 ];
 ?>
+
+//apt install php5 php5-mysql php5-mysqlnd
