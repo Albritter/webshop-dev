@@ -7,14 +7,14 @@ if (array_key_exists("user", $_POST) && !isValidUser()) {
 }
 if (!isValidUser()) {
     echo "
-<div class='container '>
-    <div class='row justify-content-center'>
-        <div class='col-md-4'>
-            <form class='form-horizontal' action='admin.php' method='post'>
+<div>
+    <div>
+        <div>
+            <form action='admin.php' method='post'>
                 <table>
                     <tr>
                         <td>
-                            <label class='control-label'>User</label> 
+                            <label>User</label> 
                         </td>
                         <td>
                             <input type='text' name='user' lable='User' required autofocus/>
@@ -22,13 +22,13 @@ if (!isValidUser()) {
                     </tr>
                     <tr>
                         <td>
-                            <label class='control-label'>Passwort</label>
+                            <label>Passwort</label>
                         </td>
                         <td>
                             <input type='password' name='password' lable='Passwort' required/>
                         </td>
                     <tr>
-                        <td colspan='2' id='login'>
+                        <td colspan='2'>
                             <input type='submit' value='Login'/>
                         </td>
                     </tr>
@@ -39,7 +39,7 @@ if (!isValidUser()) {
 </div>";
 } else if (array_key_exists("user", $_POST)) {
     echo "
-<div class='confirmation'>
+<div>
 Sie sind nun angemeldet.  
 <a href='logout.php'>Logout</a>
 </from>

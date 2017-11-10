@@ -23,12 +23,12 @@ ini_set('display_errors', 'On');
 </head>
 <body>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="index.php">Webshop-dev</a>
+<nav>
+    <div>
+        <div>
+            <a href="index.php">Webshop-dev</a>
         </div>
-        <ul class="nav navbar-nav">
+        <ul>
             <?php
             include "databases.php";
             switch (basename($_SERVER['SCRIPT_FILENAME'])) {

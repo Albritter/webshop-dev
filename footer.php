@@ -1,7 +1,7 @@
 <hr/>
 <div class="footer">
 	<div>&copy; Henrik Halbritter 2017</div>
-	<div id="leagal">
+	<div>
 		<ul>
 			<li><a href="impressum.php">Impressum</a> </li>
 			<li><a href="datenschutz.php">Datenschutz</a></li>

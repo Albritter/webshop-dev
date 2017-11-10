@@ -7,18 +7,18 @@ while ($art = mysqli_fetch_assoc($res)) {
         $art["img"] = "img/noimage.png";
     }
     echo "
-<div class='row  justify-content-center'>
-    <div class='col-md-4 col-md-offset-4'>
-        <div class='chart-entry'>
-            <div class='chart-desc-l'>
-                <div class='chart-title'>
+<div>
+    <div>
+        <div>
+            <div>
+                <div>
                     " . $art["name"] . "
                 </div>
-                <div class='chart-image'>
+                <div>
                     <img src='img/" . $art["img"] . "'/>
                 </div>
             </div>
-            <div class='chart-desc-r'>
+            <div>
                 <table>
                     <tr>       
                         <td>Anzahl: </td>
