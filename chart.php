@@ -15,7 +15,7 @@ while ($art = mysqli_fetch_assoc($res)) {
                     " . $art["name"] . "
                 </div>
                 <div>
-                    <img src='img/" . $art["img"] . "'/>
+                    <img src='". $art["img"] . "'/>
                 </div>
             </div>
             <div>
