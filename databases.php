@@ -222,5 +222,21 @@ function addArticle()
         echo "end db";
     }
 }
+function setAmount() {
+     include "config.php";
+
+
+    $con = mysqli_connect(
+        $config["db_host"],
+        $config["db_user"],
+        $config["db_pass"],
+        $config["db_name"]);
+
+    $stat = mysqli_stmt_init($con);
+    mysqli_stmt_prepare($stat, "") or die(mysqli_error($con));
+    $sessionid = session_id();
+    mysqli_stmt_bind_param($stat, "s", $sessionid);
+    mysqli_stmt_execute($stat);
+}
 
 ?>
