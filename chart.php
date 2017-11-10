@@ -15,30 +15,30 @@ while ($art = mysqli_fetch_assoc($res)) {
                     " . $art["name"] . "
                 </div>
                 <div>
-                    <img src='". $art["img"] . "'/>
+                    <img src='" . $art["img"] . "'/>
                 </div>
             </div>
             <div>
-                <table>
-                    <tr>       
-                        <td>Anzahl: </td>
-                        <td>" . $art["number"] . "</td>
-                    </tr>
-                    <tr>
-                        <td>Preis: </td>
-                        <td>" . $art["price"] . "</td>
-                    </tr>
-                    <tr>
-                        <td>Gesamt: </td>
-                        <td>" . $art["number"] * $art["price"] . "</td>
-                    </tr>
-                </table>
+                <form action='chart.php' method='POST'> 
+                    <table>
+                        <tr>       
+                            <td>Anzahl: </td>
+                            <td><input name='anzahl' type='text' size='2' maxlength='3' value='"  . $art["number"] . "'></td>
+                        </tr>
+                        <tr>
+                            <td>Preis: </td>
+                            <td>" . $art["price"] . "</td>
+                        </tr>
+                        <tr>
+                            <td>Gesamt: </td>
+                            <td>" . $art["number"] * $art["price"] . "</td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </div>
     </div>
 </div>";
-
-
 }
 echo "</div>";
 ?>
