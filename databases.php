@@ -63,7 +63,7 @@ function addArticleToChart($artid)
         $config["db_name"]);
 
     $stat = mysqli_stmt_init($con) or die(mysqli_error($con));
-    mysqli_stmt_prepare($stat, "INSERT INTO chart (idsession,idarticle) VALUE (?,?)");
+    mysqli_stmt_prepare($stat, "call add_article_to_chart(? ,?)");
     $sessionid = session_id();
     mysqli_stmt_bind_param($stat, "si", $sessionid, $artid);
     mysqli_stmt_execute($stat) or die(mysqli_error($con));
