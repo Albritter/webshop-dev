@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `db_webshop`.`chart` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `idsession` VARCHAR(45) NOT NULL COMMENT '',
   `idarticle` INT(11) NOT NULL COMMENT '',
-  `count` INT(11) NOT NULL COMMENT '',
+  `count` INT(11) NOT NULL COMMENT
   PRIMARY KEY (`id`)  COMMENT '',
   INDEX `id_session_idx` (`idsession` ASC)  COMMENT '',
   INDEX `id_article_idx` (`idarticle` ASC)  COMMENT '',
