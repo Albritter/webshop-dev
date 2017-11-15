@@ -144,6 +144,26 @@ END$$
 
 DELIMITER ;
 
+USE `db_webshop` ;
+
+
+-- -----------------------------------------------------
+-- procedure updateChart
+-- -----------------------------------------------------
+
+USE `db_webshop`;
+DELIMITER $$
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateChart`(IN artid int(11),IN anzahl int(11),IN sessionid varchar(45))
+BEGIN
+	IF(anzahl = 0)THEN DELETE FROM chart 
+		WHERE idsession=sessionid and idarticle = artid; 
+	ELSE
+    UPDATE chart c set c.count = anzahl WHERE idsession=sessionid and idarticle = artid;
+    END IF;
+END$$
+DELIMITER;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
