@@ -1,7 +1,8 @@
 <?php
 include_once "header.php";
-if(isset($_POST['anzahl'])){
-    setAmount();
+if (isset($_POST['anzahl']) && isset($_POST['artikelnummer'])) {
+    if (is_numeric($_POST['anzahl']) && is_numeric($_POST['artikelnummer']))
+        setAmount();
 }
 $res = getChart();
 include_once "header.php";
@@ -29,7 +30,7 @@ while ($art = mysqli_fetch_assoc($res)) {
                             <td>Anzahl: </td>
                             <td>
                                 <input name='anzahl' type='text' size='2' maxlength='3' value='" . $art["number"] . "'>
-                                    <input type='submit' value='Speichern'>
+                                <input type='submit' value='Speichern'>
                                 <input name='artikelnummer' type='number' value ='" . $art["id"] . "' requierd hidden>
                             </td>
                         </tr>
