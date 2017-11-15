@@ -138,7 +138,7 @@ set @c = (SELECT count(*) from chart where idsession = sessionid AND idarticle =
 
 if(IFNULL(@c,0) >= 1) THEN 
 	UPDATE chart set count = count +1 where idsession = sessionid AND idarticle = article ;
-ELSE INSERT INTO chart (idsession,idarticle,count) values(sessionid,article,0) ;
+ELSE INSERT INTO chart (idsession,idarticle,count) values(sessionid,article,1) ;
 END IF; 
 END$$
 
